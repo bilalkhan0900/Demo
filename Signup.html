@@ -1,0 +1,178 @@
+
+    <!doctype html>
+<html lang="en" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kiddlenow Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="signup.css">
+  
+
+    
+  </head>
+  <body>
+    <section id="navbar"> 
+      <nav class="navbar navbar-expand-lg navbar-dark  navbarcss" id="grad1">
+        <a class="navbar-brand" href="Home.html">Kiddlenow <i class="fab fa-kickstarter-k"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="Home.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="About.html">About <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="Game.html">Game <span class="sr-only">(current)</span></a>
+            </li>
+           
+           
+           <li class="nav-item active signuplogin">
+              <a class="nav-link" href="signup.html">Sign Up <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="login.html">Login <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      </section> 
+
+<section>
+  <div id="signup-form">
+    <form  class="box" action="#" method="post">
+  <h1>Sign Up</h1>
+  <input type="text" name="" id="first_name"  placeholder="First Name" >
+  <input type="text" name="" id="last_name" placeholder="Last Name" >
+  <input type="text" name="" id="user_name" placeholder="Username" >
+  <input type="email" name="" id="email" placeholder="Email">
+  <input type="email" name="" id="teacheremail" placeholder="Teacher Email">
+  <input type="password" name="" id="password" placeholder="Password">
+  <input type="password" name="" id="conf_password" placeholder="Confirm Password">
+
+
+
+  <input type="button" name="" id="signup_btn" value="Sign Up">
+
+  <a href="#">Forgot Password ?</a>
+</form>
+</div>
+</section>
+
+
+<!-- <section id="footer">
+
+  <div class="footer-content ">
+      <h3 class="footer-heading">Kiddlenow</h3>
+      <p class="footer-para">Kiddlenow is the EdTech startup aims to innovate the education ecosystem of Pakistan. Through gamified learning we aim to develop good learning abilities in students</p>
+<div class="container">
+<div class="row">
+  <div class="col-md-4 social-left">
+      <h4 class="H4">Social Links</h4>
+      <hr class="Sociallink-hr">
+      <ul>
+          <li><a href="#">Facebook  <i class="fab fa-facebook" ></i></a></li>
+          <li><a href="#">WhatsApp  <i class="fab fa-whatsapp"></i></a></li>
+          <li><a href="#">Instagram  <i class="fab fa-instagram"></i></a> </li>
+      </ul>
+  </div>
+
+  <div class="col-md-4 social-right">
+  <h4 class="H4">Direct Contact</h4>
+  <hr class="Directcontact-hr">
+      <ul >
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#"></a>WhatsApp</li>
+          <li><a href="#"></a>Instagram</li>
+      </ul>
+  </div>
+</div>
+<div class = "hrdiv">
+  <hr class="footer-hr">
+  </div>
+</div>
+
+<div class="end my-1">
+  <h6> All Copyright are reserved</h6>
+</div>
+
+</section> -->
+
+
+
+  </body>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+    import {getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+    import { getDatabase , set, ref } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIOYhYZuZS75-coUqnqiP7WNy9mobjzTk",
+      authDomain: "fir-7a784.firebaseapp.com",
+      databaseURL: "https://fir-7a784-default-rtdb.firebaseio.com",
+      projectId: "fir-7a784",
+      storageBucket: "fir-7a784.appspot.com",
+      messagingSenderId: "420897828600",
+      appId: "1:420897828600:web:84a2b623b1342062f9150d"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    signup_btn.addEventListener('click' , (e)=>{
+
+        var firstname = document.getElementById('first_name').value;
+        var lastname = document.getElementById('last_name').value;
+        var username = document.getElementById('user_name').value;
+        var email = document.getElementById('email').value;
+        var teacheremail = document.getElementById('teacheremail').value;
+
+        var password = document.getElementById('password').value;
+    
+
+      createUserWithEmailAndPassword(auth,email, password)
+      .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+     var id =  auth.currentUser.uid
+
+      set(ref(database, 'Users/' + user.uid), {
+        firstname: firstname,
+        lastname: lastname,
+        username: username,
+        email: email,
+        password: password,
+        id: id,
+        teacheremail:teacheremail
+      })
+      alert('user created!');
+
+      // ...
+      })
+      .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      alert(errorMessage);
+      });
+
+
+    });
+
+  </script>
+</html>
+
+ 

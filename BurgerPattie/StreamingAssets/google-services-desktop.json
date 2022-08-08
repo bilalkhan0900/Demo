@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "317655397290",
+    "firebase_url": "https://kiddlenow-c9b8f-default-rtdb.firebaseio.com",
+    "project_id": "kiddlenow-c9b8f",
+    "storage_bucket": "kiddlenow-c9b8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317655397290:android:95c864b6bb688d945631d3",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.BurgerPattie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317655397290-bffkhu4h5jsov5uqfvc4d3b1d1vd8iha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCGTDh82JEJ_k7cnGAvm0ZpoSHfsWqra8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317655397290-bffkhu4h5jsov5uqfvc4d3b1d1vd8iha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317655397290:android:a03aca5e025138ed5631d3",
+        "android_client_info": {
+          "package_name": "com.example.kiddlenow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317655397290-bffkhu4h5jsov5uqfvc4d3b1d1vd8iha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCGTDh82JEJ_k7cnGAvm0ZpoSHfsWqra8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317655397290-bffkhu4h5jsov5uqfvc4d3b1d1vd8iha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
